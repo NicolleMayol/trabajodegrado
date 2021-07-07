@@ -19,7 +19,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("https://blog.architizer.com/wp-content/uploads/taille-photo-article-scrool-1-copy.jpg") top right no-repeat;
+  background: url("/assets/img/header.png") top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
@@ -345,6 +345,11 @@ section .container {
   section.section-show {
     top: 80px;
   }
+}
+
+.card{
+  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .section-title h2 {

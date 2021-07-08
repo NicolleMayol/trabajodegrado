@@ -4,8 +4,11 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-(function() {
+(function () {
   "use strict";
+
+  var headercard = document.getElementById('headercard');
+
 
   /**
    * Easy selector helper function
@@ -47,7 +50,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -56,7 +59,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '#navbar .nav-link', function(e) {
+  on('click', '#navbar .nav-link', function (e) {
     let section = select(this.hash)
     if (section) {
       e.preventDefault()
@@ -81,6 +84,7 @@
 
       if (this.hash == '#header') {
         header.classList.remove('header-top')
+        document.getElementById("headercard").style.display = "block";
         sections.forEach((item) => {
           item.classList.remove('section-show')
         })
@@ -89,7 +93,8 @@
 
       if (!header.classList.contains('header-top')) {
         header.classList.add('header-top')
-        setTimeout(function() {
+        document.getElementById("headercard").style.display = "none";
+        setTimeout(function () {
           sections.forEach((item) => {
             item.classList.remove('section-show')
           })
@@ -101,9 +106,13 @@
           item.classList.remove('section-show')
         })
         section.classList.add('section-show')
+
       }
 
       scrollto(this.hash)
+
+      
+
     }
   }, true)
 
@@ -111,6 +120,7 @@
    * Activate/show sections on load with hash links
    */
   window.addEventListener('load', () => {
+    let aux = 0;
     if (window.location.hash) {
       let initial_nav = select(window.location.hash)
 
@@ -119,6 +129,7 @@
         let navlinks = select('#navbar .nav-link', true)
 
         header.classList.add('header-top')
+        
 
         navlinks.forEach((item) => {
           if (item.getAttribute('href') == window.location.hash) {
@@ -128,13 +139,14 @@
           }
         })
 
-        setTimeout(function() {
+        setTimeout(function () {
           initial_nav.classList.add('section-show')
         }, 350);
 
         scrollto(window.location.hash)
       }
     }
+
   });
 
   /**
@@ -145,7 +157,7 @@
     new Waypoint({
       element: skilsContent,
       offset: '80%',
-      handler: function(direction) {
+      handler: function (direction) {
         let progress = select('.progress .progress-bar', true);
         progress.forEach((el) => {
           el.style.width = el.getAttribute('aria-valuenow') + '%'
@@ -196,9 +208,9 @@
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        portfolioFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');

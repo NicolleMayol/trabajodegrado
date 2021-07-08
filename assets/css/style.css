@@ -28,6 +28,8 @@ body::before {
   z-index: -1;
 }
 
+
+
 @media (min-width: 1024px) {
   body::before {
     background-attachment: fixed;
@@ -115,6 +117,18 @@ h1, h2, h3, h4, h5, h6 {
   width: 40px;
   height: 40px;
 }
+
+
+#hcard {
+	background-color: #ffffff;
+  border-radius: 0.25rem;
+
+}
+
+#hcard:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 
 #header .social-links a:hover {
   background: #18d26e;
